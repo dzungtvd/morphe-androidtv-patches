@@ -1,14 +1,13 @@
-group = "app.template"
+group = "app.tiktoktv"
 
 patches {
-    // TODO: Update this section with your project details.
     about {
-        name = "UserXYZ Patches"
-        description = "Patches for apps I like"
-        source = "git@github.com:UserXYZ/morphe-patches.git"
-        author = "Awesome dev"
-        contact = "na"
-        website = "na"
+        name = "TikTok TV Patches"
+        description = "Patches for TikTok TV."
+        source = "https://github.com/dzungtvd/tv-morphe-patches"
+        author = "TikTok TV Patches contributors"
+        contact = "https://github.com/dzungtvd/tv-morphe-patches/issues"
+        website = "https://github.com/dzungtvd/tv-morphe-patches"
         license = "GPLv3"
     }
 }

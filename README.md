@@ -1,18 +1,25 @@
-# 👋🧩 Morphe Patches template
+# 👋🧩 TV Morphe Patches
 
-Template repository for Morphe Patches.
+> [!NOTE]
+> This is a set of Morphe patches targeting TikTok TV app on Android (and hopefully will open to more TV apps). This is for personal use but I thought it would be great to share. Everything here is AI-generated. 
+>
+> This project has no connection to ByteDance or to the Morphe project. 
 
 ## ❓ About
 
-Patches for apps I like.
-
-<!-- TODO: Update this about section with a brief introduction/summary about this repo and what it offers. -->
+TikTok TV Patches that revive the apps by using TikTok Lite endpoint.
 
 ### How to use these patches
 
-Click the button below, or manually add this repo url to Morphe Manager: https://github.com/xyz-user/xyz-patches
 
-<a href="https://morphe.software/add-source?github=xyz-user/xyz-patches">
+1. Install [Morphe Manager](https://github.com/MorpheApp/morphe-manager) 2.3.0 or newer.
+2. Add this repo as a patch source: https://morphe.software/add-source?github=dzungtvd%2Ftv-morphe-patches
+3. Download TikTok TV from [ApkMirror](https://www.apkmirror.com/apk/tiktok-pte-ltd/tiktok-for-android-tv-android-tv/). Take the bundle labelled (arm64-v8a + armeabi-v7a) (320dpi) (Android 5+), build 1203071. It should be an .apkm file.
+4. In Morphe Manager, tap **Select other apps**, then **Open APK file**, and pick that file. Android may ask for file access the first time.
+5. Patch with the default selection and install.
+
+
+<a href="https://morphe.software/add-source?github=dzungtvd%2Ftv-morphe-patches">
   <img src=".github/assets/add-to-morphe.svg" alt="Add to Morphe" height="48">
 </a>
 
@@ -27,77 +34,47 @@ Click the button below, or manually add this repo url to Morphe Manager: https:/
      If you wish to manually keep this list updated then remove the PATCHES_START and PATCHES_END 
      comment blocks entirely. -->
 
-#### A list of your patches will automatically be shown here after your first patches release is created.
-
 &nbsp;
 
-## 🚀 Getting development started
+## 📬 Issues / requests
 
-To start using this template, follow these steps:
+Found something broken? Have a new patch idea?
+Open an issue — I might get to it when I'm bored.
 
-1. [Setup](https://github.com/MorpheApp/morphe-documentation/blob/main/docs/morphe-development/README.md) your development environment including adding a GitHub PAT as described [here](https://github.com/MorpheApp/morphe-patcher/blob/main/docs/2_1_setup.md#-prepare-the-environment).
-2. [Create a new repository using this template](https://github.com/new?template_name=morphe-patches-template&template_owner=MorpheApp). Select create a new repository, and **enable 'Include all branches'** 
-3. Enable "Allow GitHub Actions to create and approve pull requests" in your repo Settings > Actions > General > Workflow permissions
-4. Update the [build.gradle.kts](patches/build.gradle.kts) file (Specifically, the 
-   [group of the project](patches/build.gradle.kts#L1), and the [About](patches/build.gradle.kts#L6-L11))
-5. Update the [README.md](README.md) file to be specific of your repo, and update the links in the [issue templates](.github/ISSUE_TEMPLATE).
-6. Choose a name for your patches project. Keep in mind you must use a name that does not 
-   imply authorship by the Morphe open source project. If unsure, then simply name these
-   patches after yourself ("UserXYZ Morphe patches"). See the [NOTICE](NOTICE) for details. 
-7. (Optional): Add `patches-bundle.png` to the project if you want a custom icon to show in
-   Morphe Manager instead of your GitHub profile avatar.
-8. (Optional): Sign your releases, so Morphe Manager refuses a release that was changed or swapped after you published it:
-   1. Run `./gradlew generateSigningKey`. It creates `morphe-signing.pub` and `morphe-signing.key`.
-   2. Commit `morphe-signing.pub`. Never commit `morphe-signing.key`, it is already ignored by git.
-   3. Add the content of `morphe-signing.key` as the `MORPHE_SIGNING_KEY` secret in your repo
-      Settings > Secrets and variables > Actions, then keep a backup of it somewhere safe and delete the file.
+Before requesting a patch:
 
-   Every release is signed from then on. If you lose the key or it leaks, create a new one the same way;
-   users then have to confirm the new key in Morphe Manager before they get your next release.
+- Check whether the feature depends on server-side validation.
+- Do not request region-lock bypasses.
 
-🎉 You are now ready to start creating patches!
+Bug reports must include:
 
-## 🧑‍💻 Dev usage
+- Logs
+- App version
+- Patch source release used to create the patched APK, for example `stable v0.1.0` or `dev v0.0.1-dev.1`
+- APK source/type, for example `APKMirror APK arm64-v8a` or `APKPure XAPK`
 
-To develop and release your Patches using this template:
+Please get in touch with me or submit a takedown request if you're an app developer and have questions regarding a patch.
 
-- **Make all changes to the `dev` branch.**
-- For local development work build your patches using the gradle task `./gradlew buildAndroid` to generate the mpp file found in `patches/build/libs/patches-*.mpp`. Apply your patches locally using Morphe Desktop tool like any other patch bundle.
-- Always use [Semantic commit](https://kapeli.com/cheat_sheets/Semantic_Commits.docset/Contents/Resources/Documents/index) messages for commits. To keep it simple use only 3 commit message types: 
-  - `feat: Added a new feature`
-  - `fix: Some problem now fixed`
-  - `chore: Random change you do not want in the user facing changelog`
-- Commits of `fix:` and `feat:` will automatically generate new pre-releases and `chore:` will not create a new release.
-- Users can apply your dev branch releases by enabling `pre-release` in Morphe Manager patch sources.
-- When your dev branch is ready, and you want a stable release, merge dev branch to main (do not squash, and only merge).
-- **Always use semantic release (release.yml)**. Do not manually upload or create releases by hand
-  because many files must be updated and release.yml handles everything.
-
-## 🤓 Tips
-- See the [patcher documentation](https://github.com/MorpheApp/morphe-patcher/blob/main/docs/1_patcher_intro.md) for more examples of creating patches and fingerprints.
-- Do not use AI to create new release scripts. The `release.yml` here already handles everything.
-  If you need something custom with your releases then modify the existing `release.yml`
-  and `.releaserc` instead of writing everything new from scratch.
-- Do not manually edit or manually commit any generated files such as: `patches-list.json`,
-  `patches-bundle.json`, `CHANGELOG.md`.  These files will be automatically updated by `release.yml`.
-- Do not force push any semantic release commits as that will break all future releases.
-  If you need to fix a broken release, it's always easiest to create a new release instead of 
-  fixing an existing release.
+I'm happy to discuss issues and will consider reasonable requests in good faith.
 
 
-<!-- The patches end tag is intentionally placed here so the first release will clean up 
-     this readme of all developer instructions above. -->
-<!-- PATCHES_END -->
+## Disclaimer
 
-### 🛠️ Building locally
+> **⚠️ Legal Notice**
+>
+> This project is provided for **educational and research purposes only**. The patches in this repository modify third-party applications and may violate the terms of service of those applications.
+>
+> - This project is **not affiliated** with any of the app developers listed above.
+> - Use these patches **at your own risk**. The author is not responsible for any consequences.
+> - If you are a developer or rights holder and believe this project infringes on your rights, please [submit a takedown request](https://github.com/dzungtvd/tv-morphe-patches/issues/new) and the relevant patches will be **promptly removed**.
 
-- Run `./gradlew buildAndroid`
-- The built patches .mpp file is found in `patches/build/libs/patches-*.mpp`
-- Patch the mpp file using [Morphe-Desktop](https://github.com/MorpheApp/morphe-desktop)
-  like any other patch bundle.
+## ❤️ Credits
 
-See the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation) for more information.
+Thanks to:
+
+- [Morphe](https://github.com/MorpheApp/)
+- [Revanced](https://github.com/revanced)
 
 ## 📜 License
 
-UserXYZ Patches are licensed under the [GNU General Public License v3.0](LICENSE)
+TV Morphe Patches are licensed under the [GNU General Public License v3.0](LICENSE)
