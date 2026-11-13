@@ -4,10 +4,10 @@ patches {
     about {
         name = "TikTok TV Patches"
         description = "Patches for TikTok TV."
-        source = "https://github.com/dzungtvd/tv-morphe-patches"
+        source = "https://github.com/dzungtvd/morphe-androidtv-patches"
         author = "TikTok TV Patches contributors"
-        contact = "https://github.com/dzungtvd/tv-morphe-patches/issues"
-        website = "https://github.com/dzungtvd/tv-morphe-patches"
+        contact = "https://github.com/dzungtvd/morphe-androidtv-patches/issues"
+        website = "https://github.com/dzungtvd/morphe-androidtv-patches"
         license = "GPLv3"
     }
 }

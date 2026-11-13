@@ -13,13 +13,13 @@ TikTok TV Patches that revive the apps by using TikTok Lite endpoint.
 
 
 1. Install [Morphe Manager](https://github.com/MorpheApp/morphe-manager) 2.3.0 or newer.
-2. Add this repo as a patch source: https://morphe.software/add-source?github=dzungtvd%2Ftv-morphe-patches
+2. Add this repo as a patch source: https://morphe.software/add-source?github=dzungtvd%2Fmorphe-androidtv-patches
 3. Download TikTok TV from [ApkMirror](https://www.apkmirror.com/apk/tiktok-pte-ltd/tiktok-for-android-tv-android-tv/). Take the bundle labelled (arm64-v8a + armeabi-v7a) (320dpi) (Android 5+), build 1203071. It should be an .apkm file.
 4. In Morphe Manager, tap **Select other apps**, then **Open APK file**, and pick that file. Android may ask for file access the first time.
 5. Patch with the default selection and install.
 
 
-<a href="https://morphe.software/add-source?github=dzungtvd%2Ftv-morphe-patches">
+<a href="https://morphe.software/add-source?github=dzungtvd%2Fmorphe-androidtv-patches">
   <img src=".github/assets/add-to-morphe.svg" alt="Add to Morphe" height="48">
 </a>
 
@@ -66,7 +66,7 @@ I'm happy to discuss issues and will consider reasonable requests in good faith.
 >
 > - This project is **not affiliated** with any of the app developers listed above.
 > - Use these patches **at your own risk**. The author is not responsible for any consequences.
-> - If you are a developer or rights holder and believe this project infringes on your rights, please [submit a takedown request](https://github.com/dzungtvd/tv-morphe-patches/issues/new) and the relevant patches will be **promptly removed**.
+> - If you are a developer or rights holder and believe this project infringes on your rights, please [submit a takedown request](https://github.com/dzungtvd/morphe-androidtv-patches/issues/new) and the relevant patches will be **promptly removed**.
 
 ## ❤️ Credits
 
