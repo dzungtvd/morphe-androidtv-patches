@@ -26,7 +26,7 @@ TikTok TV Patches that revive the apps by using TikTok Lite endpoint.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.0.0-dev.1](https://github.com/dzungtvd/morphe-androidtv-patches/releases/tag/v1.0.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;13 patches total
+> **[v1.0.0](https://github.com/dzungtvd/morphe-androidtv-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;13 patches total
 <details open>
 <summary>📺 TikTok TV (Android TV)&nbsp;&nbsp;•&nbsp;&nbsp;13 patches</summary>
 <br>
