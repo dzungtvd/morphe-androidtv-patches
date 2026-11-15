@@ -1,103 +1,103 @@
-# 👋🧩 Morphe Patches template
+# 👋🧩 TV Morphe Patches
 
-Template repository for Morphe Patches.
+> [!NOTE]
+> This is a set of Morphe patches targeting TikTok TV app on Android (and hopefully will open to more TV apps). This is for personal use but I thought it would be great to share. Everything here is AI-generated. 
+>
+> This project has no connection to ByteDance or to the Morphe project. 
 
 ## ❓ About
 
-Patches for apps I like.
-
-<!-- TODO: Update this about section with a brief introduction/summary about this repo and what it offers. -->
+TikTok TV Patches that revive the apps by using TikTok Lite endpoint.
 
 ### How to use these patches
 
-Click the button below, or manually add this repo url to Morphe Manager: https://github.com/xyz-user/xyz-patches
 
-<a href="https://morphe.software/add-source?github=xyz-user/xyz-patches">
+1. Install [Morphe Manager](https://github.com/MorpheApp/morphe-manager) 2.3.0 or newer.
+2. Add this repo as a patch source: https://morphe.software/add-source?github=dzungtvd%2Fmorphe-androidtv-patches
+3. Download TikTok TV from [ApkMirror](https://www.apkmirror.com/apk/tiktok-pte-ltd/tiktok-for-android-tv-android-tv/). Take the bundle labelled (arm64-v8a + armeabi-v7a) (320dpi) (Android 5+), build 1203071. It should be an .apkm file.
+4. In Morphe Manager, tap **Select other apps**, then **Open APK file**, and pick that file. Android may ask for file access the first time.
+5. Patch with the default selection and install.
+
+
+<a href="https://morphe.software/add-source?github=dzungtvd%2Fmorphe-androidtv-patches">
   <img src=".github/assets/add-to-morphe.svg" alt="Add to Morphe" height="48">
 </a>
 
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
+> **[v1.0.0-dev.1](https://github.com/dzungtvd/morphe-androidtv-patches/releases/tag/v1.0.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;13 patches total
+<details open>
+<summary>📺 TikTok TV (Android TV)&nbsp;&nbsp;•&nbsp;&nbsp;13 patches</summary>
+<br>
 
-<!-- Do not modify this section by hand. The patch list is generated when release.yml creates a new release.
-     
-     If you wish for the patches list to be collapsed, then remove the word 'EXPANDED' from the comment tag above.
+**Package name:** `com.tiktok.tv`
 
-     If you wish to manually keep this list updated then remove the PATCHES_START and PATCHES_END 
-     comment blocks entirely. -->
+**🎯 Supported versions:**
 
-#### A list of your patches will automatically be shown here after your first patches release is created.
+| 🧪&nbsp;12.3.7.1 | 12.3.4.1 |
+| :---: | :---: |
+| The newest TikTok TV build served by APKMirror. Every committed patch matches the stock 12.3.7.1 .apkm and has run on a 32-bit TV device. Experimental while the login work is unfinished. | The armv7 build these patches were developed and runtime-verified on. |
 
-&nbsp;
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Debug search logging](#debug-search-logging) | Temporary diagnostic patch: logs search responses and failures to logcat. |  |
+| [Enable search landing recommendations](#enable-search-landing-recommendations) | Turns on the "You may like" trending panel on the search landing screen. |  |
+| [Fix TikTok TV identity](#fix-tiktok-tv-identity) | Re-tags the search and profile requests with the TikTok TV app id, which those backends require, while the feed keeps the TikTok Lite id that it is only served under; empty risk-engine answers are retried. |  |
+| [Fix TikTok TV profiles](#fix-tiktok-tv-profiles) | Sends profile-head and video-grid requests to the live TikTok Lite endpoints instead of the retired TV profile backend. |  |
+| [Nested comment replies](#nested-comment-replies) | Shows a comment's reply count in the row and opens its replies in a SmartTube-style sub-pane on CENTER, with BACK returning to the comment list. Fully D-pad operable. |  |
+| [Play in background](#play-in-background) | Adds a More-pane Off / Only audio choice that keeps the current post playing when the TV app is backgrounded. |  |
+| [Playback speed](#playback-speed) | Adds 2x, 1.5x, 1x and 0.5x playback to the player's More pane, applied with the same TTVideoEngine.setPlaybackParams call TikTok Lite uses. |  |
+| [Remove TV sidebar categories](#remove-tv-sidebar-categories) | Empties the TV category lists so the sidebar only shows Search, For You, and Following, like TikTok Lite. |  |
+| [Remove feed ads](#remove-feed-ads) | Drops the ad posts TikTok Lite puts in the feed, search, category and profile responses, which the TV app otherwise plays as ordinary videos. |  |
+| [Render Lite image posts](#render-lite-image-posts) | Shows the pictures of a TikTok Lite image post instead of a black player, which the TV app cannot render at all. |  |
+| [Render Lite subtitles](#render-lite-subtitles) | Adds the subtitles button to the player's floating row and draws the post's captions over the video, with SmartTube-style presets, size and position settings in the More pane. |  |
+| [Show TikTok Lite content](#show-tiktok-lite-content) | Reports the TikTok Lite app id on the wire and targets the live feed endpoint, so the server serves TikTok content instead of the retired TV feed. | • Wire app id<br>• Wire app name<br>• Feed endpoint |
+| [Translate comments and captions](#translate-comments-and-captions) | Adds TikTok's Aa translation panel to More — always translate comments, a do-not-translate list, the target language and also-translate-caption — and renders a dimmed "Translated from …" line under translated comments and above translated captions. |  |
 
-## 🚀 Getting development started
+</details>
 
-To start using this template, follow these steps:
-
-1. [Setup](https://github.com/MorpheApp/morphe-documentation/blob/main/docs/morphe-development/README.md) your development environment including adding a GitHub PAT as described [here](https://github.com/MorpheApp/morphe-patcher/blob/main/docs/2_1_setup.md#-prepare-the-environment).
-2. [Create a new repository using this template](https://github.com/new?template_name=morphe-patches-template&template_owner=MorpheApp). Select create a new repository, and **enable 'Include all branches'** 
-3. Enable "Allow GitHub Actions to create and approve pull requests" in your repo Settings > Actions > General > Workflow permissions
-4. Update the [build.gradle.kts](patches/build.gradle.kts) file (Specifically, the 
-   [group of the project](patches/build.gradle.kts#L1), and the [About](patches/build.gradle.kts#L6-L11))
-5. Update the [README.md](README.md) file to be specific of your repo, and update the links in the [issue templates](.github/ISSUE_TEMPLATE).
-6. Choose a name for your patches project. Keep in mind you must use a name that does not 
-   imply authorship by the Morphe open source project. If unsure, then simply name these
-   patches after yourself ("UserXYZ Morphe patches"). See the [NOTICE](NOTICE) for details. 
-7. (Optional): Add `patches-bundle.png` to the project if you want a custom icon to show in
-   Morphe Manager instead of your GitHub profile avatar.
-8. (Optional): Sign your releases, so Morphe Manager refuses a release that was changed or swapped after you published it:
-   1. Run `./gradlew generateSigningKey`. It creates `morphe-signing.pub` and `morphe-signing.key`.
-   2. Commit `morphe-signing.pub`. Never commit `morphe-signing.key`, it is already ignored by git.
-   3. Add the content of `morphe-signing.key` as the `MORPHE_SIGNING_KEY` secret in your repo
-      Settings > Secrets and variables > Actions, then keep a backup of it somewhere safe and delete the file.
-
-   Every release is signed from then on. If you lose the key or it leaks, create a new one the same way;
-   users then have to confirm the new key in Morphe Manager before they get your next release.
-
-🎉 You are now ready to start creating patches!
-
-## 🧑‍💻 Dev usage
-
-To develop and release your Patches using this template:
-
-- **Make all changes to the `dev` branch.**
-- For local development work build your patches using the gradle task `./gradlew buildAndroid` to generate the mpp file found in `patches/build/libs/patches-*.mpp`. Apply your patches locally using Morphe Desktop tool like any other patch bundle.
-- Always use [Semantic commit](https://kapeli.com/cheat_sheets/Semantic_Commits.docset/Contents/Resources/Documents/index) messages for commits. To keep it simple use only 3 commit message types: 
-  - `feat: Added a new feature`
-  - `fix: Some problem now fixed`
-  - `chore: Random change you do not want in the user facing changelog`
-- Commits of `fix:` and `feat:` will automatically generate new pre-releases and `chore:` will not create a new release.
-- Users can apply your dev branch releases by enabling `pre-release` in Morphe Manager patch sources.
-- When your dev branch is ready, and you want a stable release, merge dev branch to main (do not squash, and only merge).
-- **Always use semantic release (release.yml)**. Do not manually upload or create releases by hand
-  because many files must be updated and release.yml handles everything.
-
-## 🤓 Tips
-- See the [patcher documentation](https://github.com/MorpheApp/morphe-patcher/blob/main/docs/1_patcher_intro.md) for more examples of creating patches and fingerprints.
-- Do not use AI to create new release scripts. The `release.yml` here already handles everything.
-  If you need something custom with your releases then modify the existing `release.yml`
-  and `.releaserc` instead of writing everything new from scratch.
-- Do not manually edit or manually commit any generated files such as: `patches-list.json`,
-  `patches-bundle.json`, `CHANGELOG.md`.  These files will be automatically updated by `release.yml`.
-- Do not force push any semantic release commits as that will break all future releases.
-  If you need to fix a broken release, it's always easiest to create a new release instead of 
-  fixing an existing release.
-
-
-<!-- The patches end tag is intentionally placed here so the first release will clean up 
-     this readme of all developer instructions above. -->
 <!-- PATCHES_END -->
 
-### 🛠️ Building locally
+## 📬 Issues / requests
 
-- Run `./gradlew buildAndroid`
-- The built patches .mpp file is found in `patches/build/libs/patches-*.mpp`
-- Patch the mpp file using [Morphe-Desktop](https://github.com/MorpheApp/morphe-desktop)
-  like any other patch bundle.
+Found something broken? Have a new patch idea?
+Open an issue — I might get to it when I'm bored.
 
-See the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation) for more information.
+Before requesting a patch:
+
+- Check whether the feature depends on server-side validation.
+- Do not request region-lock bypasses.
+
+Bug reports must include:
+
+- Logs
+- App version
+- Patch source release used to create the patched APK, for example `stable v0.1.0` or `dev v0.0.1-dev.1`
+- APK source/type, for example `APKMirror APK arm64-v8a` or `APKPure XAPK`
+
+Please get in touch with me or submit a takedown request if you're an app developer and have questions regarding a patch.
+
+I'm happy to discuss issues and will consider reasonable requests in good faith.
+
+
+## Disclaimer
+
+> **⚠️ Legal Notice**
+>
+> This project is provided for **educational and research purposes only**. The patches in this repository modify third-party applications and may violate the terms of service of those applications.
+>
+> - This project is **not affiliated** with any of the app developers listed above.
+> - Use these patches **at your own risk**. The author is not responsible for any consequences.
+> - If you are a developer or rights holder and believe this project infringes on your rights, please [submit a takedown request](https://github.com/dzungtvd/morphe-androidtv-patches/issues/new) and the relevant patches will be **promptly removed**.
+
+## ❤️ Credits
+
+Thanks to:
+
+- [Morphe](https://github.com/MorpheApp/)
+- [Revanced](https://github.com/revanced)
 
 ## 📜 License
 
-UserXYZ Patches are licensed under the [GNU General Public License v3.0](LICENSE)
+TV Morphe Patches are licensed under the [GNU General Public License v3.0](LICENSE)
