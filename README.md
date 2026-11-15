@@ -36,6 +36,8 @@ TikTok TV Patches that revive the apps by using TikTok Lite endpoint.
 
 &nbsp;
 
+<!-- PATCHES_END -->
+
 ## 📬 Issues / requests
 
 Found something broken? Have a new patch idea?
