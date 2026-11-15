@@ -26,15 +26,36 @@ TikTok TV Patches that revive the apps by using TikTok Lite endpoint.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
+> **[v1.0.0-dev.1](https://github.com/dzungtvd/morphe-androidtv-patches/releases/tag/v1.0.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;13 patches total
+<details open>
+<summary>📺 TikTok TV (Android TV)&nbsp;&nbsp;•&nbsp;&nbsp;13 patches</summary>
+<br>
 
-<!-- Do not modify this section by hand. The patch list is generated when release.yml creates a new release.
-     
-     If you wish for the patches list to be collapsed, then remove the word 'EXPANDED' from the comment tag above.
+**Package name:** `com.tiktok.tv`
 
-     If you wish to manually keep this list updated then remove the PATCHES_START and PATCHES_END 
-     comment blocks entirely. -->
+**🎯 Supported versions:**
 
-&nbsp;
+| 🧪&nbsp;12.3.7.1 | 12.3.4.1 |
+| :---: | :---: |
+| The newest TikTok TV build served by APKMirror. Every committed patch matches the stock 12.3.7.1 .apkm and has run on a 32-bit TV device. Experimental while the login work is unfinished. | The armv7 build these patches were developed and runtime-verified on. |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Debug search logging](#debug-search-logging) | Temporary diagnostic patch: logs search responses and failures to logcat. |  |
+| [Enable search landing recommendations](#enable-search-landing-recommendations) | Turns on the "You may like" trending panel on the search landing screen. |  |
+| [Fix TikTok TV identity](#fix-tiktok-tv-identity) | Re-tags the search and profile requests with the TikTok TV app id, which those backends require, while the feed keeps the TikTok Lite id that it is only served under; empty risk-engine answers are retried. |  |
+| [Fix TikTok TV profiles](#fix-tiktok-tv-profiles) | Sends profile-head and video-grid requests to the live TikTok Lite endpoints instead of the retired TV profile backend. |  |
+| [Nested comment replies](#nested-comment-replies) | Shows a comment's reply count in the row and opens its replies in a SmartTube-style sub-pane on CENTER, with BACK returning to the comment list. Fully D-pad operable. |  |
+| [Play in background](#play-in-background) | Adds a More-pane Off / Only audio choice that keeps the current post playing when the TV app is backgrounded. |  |
+| [Playback speed](#playback-speed) | Adds 2x, 1.5x, 1x and 0.5x playback to the player's More pane, applied with the same TTVideoEngine.setPlaybackParams call TikTok Lite uses. |  |
+| [Remove TV sidebar categories](#remove-tv-sidebar-categories) | Empties the TV category lists so the sidebar only shows Search, For You, and Following, like TikTok Lite. |  |
+| [Remove feed ads](#remove-feed-ads) | Drops the ad posts TikTok Lite puts in the feed, search, category and profile responses, which the TV app otherwise plays as ordinary videos. |  |
+| [Render Lite image posts](#render-lite-image-posts) | Shows the pictures of a TikTok Lite image post instead of a black player, which the TV app cannot render at all. |  |
+| [Render Lite subtitles](#render-lite-subtitles) | Adds the subtitles button to the player's floating row and draws the post's captions over the video, with SmartTube-style presets, size and position settings in the More pane. |  |
+| [Show TikTok Lite content](#show-tiktok-lite-content) | Reports the TikTok Lite app id on the wire and targets the live feed endpoint, so the server serves TikTok content instead of the retired TV feed. | • Wire app id<br>• Wire app name<br>• Feed endpoint |
+| [Translate comments and captions](#translate-comments-and-captions) | Adds TikTok's Aa translation panel to More — always translate comments, a do-not-translate list, the target language and also-translate-caption — and renders a dimmed "Translated from …" line under translated comments and above translated captions. |  |
+
+</details>
 
 <!-- PATCHES_END -->
 
